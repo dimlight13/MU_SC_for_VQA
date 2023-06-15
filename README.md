@@ -64,7 +64,7 @@ python main.py --data_dir data/ --batch_size 32 --num_epochs 10
 
 Configurations can be modified in `main.py`. 
 
-### Testing and Continuous Integration
+### Testing
 
 An example command to start a test session with trained model and weights:
 
