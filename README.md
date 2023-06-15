@@ -1,4 +1,4 @@
-# MU_SC_for_VQA
+# MU_SC_for_VQA with tensorflow
 
 This repository contains the implementation of the paper "Multi-User Semantic Communication for Visual Question Answering" by authors Zhiwei Xu, Yuxuan Song, Yongfeng Huang, and Shengyang Dai. The paper presents a novel approach to multi-modal classification in wireless communications using semantic communication.
 
