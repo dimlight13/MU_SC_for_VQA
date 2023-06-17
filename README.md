@@ -40,6 +40,8 @@ pip install -r requirements.txt
 
 Download and extract CLEVR v1.0 dataset from http://cs.stanford.edu/people/jcjohns/clevr/
 
+Download the CLEVR v1.0 into the main folder
+
 Run the following command to preprocessing. 
 
 ```
