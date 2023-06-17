@@ -4,14 +4,16 @@ This repository contains the implementation of the paper "Multi-User Semantic Co
 
 The mac_network model used in the paper above was implemented with PyTorch, but this implementation code was written based on tensorflow-gpu 2.9.1 version. I tried to implement the code for the paper above, but still it doesn't work well. The model could be trained with the dataset but the accuracy was limited to be a certain percentage (~50%). 
 
-2023.06.17 Notification
+[2023.06.17 Notification]
+
 I have identified why training accuraccy was low and training has not been performed properly. When the data can be shuffled properly (so that the labels are evenly distributed), the classification accuracy of the model has been significantly improved. As discussed in the paper, it has been confirmed that the classification accuracy can be reached almost 100%.
 
 이 리포지토리에는 "Multi-User Semantic Communication for Visual Question Answering" 논문의 구현이 포함되어 있습니다. 이 논문은 시맨틱 통신을 사용하는 무선 통신의 multi-modal classification에 대한 새로운 접근 방식을 제시합니다.
 
 논문에 사용된 mac_network 모델은 PyTorch로 구현했으나 본 implementation code는 tensorflow-gpu==2.9.1 버전을 기준으로 작성되었습니다. 위 논문에 대한 코드를 구현했지만 학습이 잘 수행되지 않습니다. 현재, 모델은 데이터 세트로 학습되긴 하지만 정확도는 특정 비율(~50%)로 제한됩니다. 문제점을 구체적으로 파악하지 못한 상황입니다.
 
-2023.06.17 수정사항
+[2023.06.17 수정사항]
+
 학습이 왜 적절하게 수행되지 않았는 지에 대한 이유를 알아냈습니다. 데이터가 적절하게 (레이블이 균등하게 분포될 수 있도록) 섞인다면 정확도가 크게 향상됩니다. 논문에서 나온 바와 같이 training, validation accuracy가 100%에 근접하게 도달하게 됩니다.
 
 ## Introduction
