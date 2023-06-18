@@ -5,12 +5,9 @@ import h5py
 import pickle
 from keras.utils import to_categorical
 from keras.metrics import CategoricalAccuracy
-from keras.losses import CategoricalCrossentropy
-from tqdm import tqdm
 import random
 import collections
 
-_cse = CategoricalCrossentropy()
 train_acc_metric = CategoricalAccuracy()
 val_acc_metric = CategoricalAccuracy()
 
@@ -31,32 +28,15 @@ class ClevrDataset(tf.keras.utils.Sequence):
 
         self.shuffle()
         self.img = h5py.File(os.path.join(data_dir, 'image_{}.h5'.format(split)), 'r')
-        self.max_question_length = 46  # max_len + 1
-        self.num_classes = 28  # max_len + 1
+        self.max_question_length = 46  
+        self.num_classes = 28  
 
     def shuffle(self):
         self.data = []
         for _, items in self.data_dict.items():
-            random.shuffle(items)
             self.data += items
-        
-        self.data = self.data[:10000]
 
-    def get_max_answer(self):
-        max_answer = 0
-        for index in range(len(self.data)):
-            _, _, answer, _ = self.data[index]
-            if answer > max_answer:
-                max_answer = answer
-        return max_answer + 1
-
-    def get_max_question_length(self):
-        max_len = 0
-        for index in range(len(self.data)):
-            _, question, _, _ = self.data[index]
-            if len(question) > max_len:
-                max_len = len(question)
-        return max_len + 1
+        random.shuffle(items)
 
     def pad_question(self, question):
         if len(question) >= self.max_question_length:
@@ -76,19 +56,7 @@ class ClevrDataset(tf.keras.utils.Sequence):
 
     def __len__(self):
         return len(self.data)
-    
 
 def load_dataset(data_dir='data/', name='train'):
     dataset = ClevrDataset(data_dir=data_dir, split=name)
     return dataset
-
-@tf.function
-def train_step(inputs, labels, sc_model, opt):
-    with tf.GradientTape() as tape:
-        predictions = sc_model(inputs, training=True)
-        loss = _cse(labels, predictions)
-
-    gradients = tape.gradient(loss, sc_model.trainable_variables)
-    opt.apply_gradients(zip(gradients, sc_model.trainable_variables))
-    train_acc_metric.update_state(labels, predictions)
-    return loss

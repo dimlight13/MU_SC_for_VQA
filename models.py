@@ -149,4 +149,4 @@ class Chan_Model(object):
         else:
             raise ValueError("Invalid channel type. Choose 'awgn', 'rayleigh', or 'rician'.")
         
-        return output
+        return perfect_channel_estimation(output, channel_matrix)
