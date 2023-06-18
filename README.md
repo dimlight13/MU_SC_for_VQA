@@ -6,7 +6,7 @@ The mac_network model used in the paper above was implemented with PyTorch, but 
 
 [2023.06.17 Notification]
 
-I have identified why training accuraccy was low and training has not been performed properly. When the data can be shuffled properly (so that the labels are evenly distributed), the classification accuracy of the model has been significantly improved. As discussed in the paper, it has been confirmed that the classification accuracy can be reached almost 100%.
+I figured out the reason why the training wasn't performing properly. Data are unevenly distributed. Specifically, there are less than 200 specific labels (answer), but more than 100,000 specific labels. This causes serious imbalance and training bias.
 
 이 리포지토리에는 "Multi-User Semantic Communication for Visual Question Answering" 논문의 구현이 포함되어 있습니다. 이 논문은 시맨틱 통신을 사용하는 무선 통신의 multi-modal classification에 대한 새로운 접근 방식을 제시합니다.
 
@@ -14,7 +14,7 @@ I have identified why training accuraccy was low and training has not been perfo
 
 [2023.06.17 수정사항]
 
-학습이 왜 적절하게 수행되지 않았는 지에 대한 이유를 알아냈습니다. 데이터가 적절하게 (레이블이 균등하게 분포될 수 있도록) 섞인다면 정확도가 크게 향상됩니다. 논문에서 나온 바와 같이 training, validation accuracy가 100%에 근접하게 도달하게 됩니다.
+학습이 왜 적절하게 수행되지 않았는 지에 대한 이유를 알아냈습니다. 데이터가 불균등하게 분포합니다. 특히, 특정 레이블(answer)은 200개 이하이지만 특정 레이블은 100,000개 이상입니다. 이는 심각한 불균형 및 훈련 편향을 야기합니다.
 
 ## Introduction
 
