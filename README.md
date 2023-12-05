@@ -1,6 +1,6 @@
 # MU_SC_for_VQA with tensorflow
 
-This repository contains the implementation of the paper "Multi-User Semantic Communication for Visual Question Answering" by authors Zhiwei Xu, Yuxuan Song, Yongfeng Huang, and Shengyang Dai. The paper presents a novel approach to multi-modal classification in wireless communications using semantic communication.
+This repository contains the implementation of the paper "Task-Oriented Multi-User Semantic Communications for VQA Task" by authors Huiqiang Xie, Zhijin Qin, and Geoffrey Ye Li. The paper presents a novel approach to multi-modal classification in wireless communications using semantic communication.
 
 The mac_network model used in the paper above was implemented with PyTorch, but this implementation code was written based on tensorflow-gpu 2.9.1 version. I tried to implement the code for the paper above, but still it doesn't work well. The model could be trained with the dataset but the accuracy was limited to be a certain percentage (~50%). 
 
